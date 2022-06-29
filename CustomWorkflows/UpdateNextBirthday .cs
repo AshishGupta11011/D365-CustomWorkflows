@@ -33,7 +33,7 @@ namespace CustomWorkflows
             var contactObj = this.Contact.Get(executionContext);
 
             //create the request
-           Entity entity =  service.Retrieve("contect",contactObj.Id,new Microsoft.Xrm.Sdk.Query.ColumnSet("birthdate"));
+           Entity entity =  service.Retrieve(contactObj.LogicalName,contactObj.Id,new Microsoft.Xrm.Sdk.Query.ColumnSet("birthdate"));
 
             RetrieveRequest request = new RetrieveRequest() {
                 ColumnSet = new Microsoft.Xrm.Sdk.Query.ColumnSet(new string[] { "birthdate" }),
@@ -71,7 +71,7 @@ namespace CustomWorkflows
                 {
                     //check if current year is leap year
                     if (!DateTime.IsLeapYear(DateTime.Now.Year)) {
-                        nextBirthdayDate.AddDays(1);
+                        nextBirthdayDate = nextBirthdayDate.AddDays(1);
                         leapYearAdjust = true;
                     }
                 }
@@ -79,11 +79,11 @@ namespace CustomWorkflows
                     throw new Exception("UpdateNextBirthday : birthdate is not correctly set", new ArgumentException("birthdate"));
                 }
             };
-            nextBirthdayDate.AddYears(DateTime.Now.Year - nextBirthdayDate.Year);
+           nextBirthdayDate =  nextBirthdayDate.AddYears(DateTime.Now.Year - nextBirthdayDate.Year);
 
             //Check to see if leapyear was adjusted
             if (leapYearAdjust && DateTime.IsLeapYear(nextBirthdayDate.Year)) {
-                nextBirthdayDate.AddDays(-1);
+                nextBirthdayDate = nextBirthdayDate.AddDays(-1);
             }
             return nextBirthdayDate;
         }
