@@ -8,7 +8,7 @@ using System.Activities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 
-namespace IncrementAccountCreditLimit
+namespace CustomWorkflows
 {
     public class IncrementCrdeitLimit : CodeActivity
     {
@@ -19,7 +19,8 @@ namespace IncrementAccountCreditLimit
         [RequiredArgument]
         [Output("Decimal Output")]
         public OutArgument<decimal> DecOutput { get; set; }
-        protected override void Execute(CodeActivityContext context) {
+        protected override void Execute(CodeActivityContext context)
+        {
             decimal input = DecInput.Get(context);
             DecOutput.Set(context, input + 10);
         }

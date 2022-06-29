@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IncrementAccountCreditLimit")]
+[assembly: AssemblyTitle("CustomWorkflows")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IncrementAccountCreditLimit")]
+[assembly: AssemblyProduct("CustomWorkflows")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9a4a103f-8b5e-4361-97fa-7bb620259bdd")]
+[assembly: Guid("4e93d119-9ad5-450a-b8ca-aac7adfabb65")]
 
 // Version information for an assembly consists of the following four values:
 //
